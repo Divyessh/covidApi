@@ -4,8 +4,12 @@ This contains files for an API that is used for getting the updates of covid 19 
 
 # Instructions and more
 
-The main logic can be divided in three parts. 
-First is the data extraction that is done by dataExtract.py
-Then comes converting our obtained csv to json that is done by jso.py
-And then we create an api for calling the data.json 
-At last we have our main.py that runs all of them together.
+We need to run main.sh and it will collect the latest data as well as run our api. 
+For that we can add a cronjob:
+
+enter the following command in your command prompt:
+crontab -e 
+
+then at bottom write :
+
+10 16 * * * /bin/sh {/path/to/main.sh}

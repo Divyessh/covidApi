@@ -2,9 +2,12 @@ from fastapi import FastAPI
 from flask import request, jsonify
 import json
 import requests
+from pathlib import Path
+
+dpath = '/'.join(str(Path('.').absolute()).split('/')[0:-1])
+jsonPath = f'{dpath}/data/data.json'
 
 app = FastAPI()
-
 
 @app.get('/')
 def home():
@@ -15,7 +18,7 @@ def home():
 def api_id(id: str):
     # Create an empty list for our results
     results = []
-    with open ('/home/divyessh/Desktop/covid/Covid19Api/data/data.json','r') as f:
+    with open (jsonPath,'r') as f:
         books = json.load(f)  
 
         # Loop through the data and match results that fit the requested ID.

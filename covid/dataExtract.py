@@ -3,14 +3,15 @@ import csv
 from datetime import datetime
 import json
 
-date = datetime.today().date().day - 1
+date = int(datetime.today().date().day) - 1
+print(date)
 month = datetime.today().date().month
 year = datetime.today().date().year
 
 if int(date) < 10:
 	date = '0' + str(date) 
 
-if int(date) == 0:
+elif int(date) <= 0:
 	if int(month) in [1,2,4,6,8,9,11]:
 		date = 31
 		month = int(month) -1
@@ -27,9 +28,7 @@ if int(date) == 0:
 if int(month) < 10:
 	month = '0' + str(month) 
 
-
 dpath = '/'.join(__file__.split('/')[0:-2])
-
 os.system(f'cd {dpath}/data && wget https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/{month}-{date}-{year}.csv?raw=true')
 os.system(f'cd {dpath}/data && mv {month}-{date}-{year}.csv?raw=true {month}-{date}-{year}.csv')
 

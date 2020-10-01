@@ -1,5 +1,5 @@
 from os import system as s
 
-s.('cd [path/to/cloned folder]/covid/')
-s.('python3 dataExtract.py')
-s.('uvicorn fastApi:app --reload')
+fpath = '/'.join(__file__.split('/')[0:-1])
+
+s(f'python3 {fpath}/dataExtract.py && uvicorn fastApi:app --reload')

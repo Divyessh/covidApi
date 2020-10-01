@@ -7,7 +7,7 @@ This contains files for an API that is used for getting the updates of covid 19 
 We need to run main.sh and it will collect the latest data as well as run our api. 
 For that we can add a cronjob:
 
-We simply need to update the folder path in main.sh and then run main.sh by the following command in CMD:
-bash /path/to/main.sh
+We simply need to update the folder path in main.py and then run main.py by the following command in CMD:
+python /path/to/main.py
 or
-sh /path/to/main.sh
+python3 /path/to/main.py

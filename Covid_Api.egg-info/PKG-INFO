@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: Covid-Api
+Version: 0.0.1
+Summary: an API that is used for getting the updates of covid 19 from jhu - https://github.com/CSSEGISandData/COVID-19 - Worldwide Data repository
+Home-page: https://github.com/Divyessh/covidApi
+Author: Divyessh Maheshwari
+Author-email: divyesshm@gmail.com
+License: GNU License
+Description: # Covid19
+        
+        This contains files for an API that is used for getting the updates of covid 19 from jhu - https://github.com/CSSEGISandData/COVID-19 - Worldwide Data repository operated by the Johns Hopkins University Center for Systems Science and Engineering (JHU CSSE).
+        
+        # Instructions and more
+        
+        We need to run main.sh and it will collect the latest data as well as run our api. 
+        For that we can add a cronjob:
+        
+        We simply need to run main.py by the following command in CMD:
+        python /path/to/main.py
+        or
+        python3 /path/to/main.py
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

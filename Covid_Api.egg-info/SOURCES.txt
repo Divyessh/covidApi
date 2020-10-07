@@ -1,0 +1,12 @@
+README.md
+setup.py
+Covid_Api.egg-info/PKG-INFO
+Covid_Api.egg-info/SOURCES.txt
+Covid_Api.egg-info/dependency_links.txt
+Covid_Api.egg-info/requires.txt
+Covid_Api.egg-info/top_level.txt
+covid/__init__.py
+covid/dataExtract.py
+covid/fastApi.py
+covid/main.py
+data/__init__.py

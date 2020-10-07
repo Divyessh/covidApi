@@ -8,7 +8,7 @@ with open("requirements.txt", "r") as req:
     listOfReq = require.split('\n')
 
 setuptools.setup(
-    name="Covid-Api", 
+    name="Covid19Api", 
     version="0.0.1",
     author="Divyessh Maheshwari",
     author_email="divyesshm@gmail.com",

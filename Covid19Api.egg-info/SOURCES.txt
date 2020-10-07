@@ -1,0 +1,11 @@
+README.md
+setup.py
+Covid19Api/__init__.py
+Covid19Api/__main__.py
+Covid19Api/dataExtract.py
+Covid19Api/fastApi.py
+Covid19Api.egg-info/PKG-INFO
+Covid19Api.egg-info/SOURCES.txt
+Covid19Api.egg-info/dependency_links.txt
+Covid19Api.egg-info/requires.txt
+Covid19Api.egg-info/top_level.txt

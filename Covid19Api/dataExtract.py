@@ -53,13 +53,13 @@ def extract():
 		if int(month) < 10:
 			month = '0' + str(month) 
 
-		dpath = '/'.join(__file__.split('/')[0:-2])
-		os.system(f'cd {dpath}/data && wget https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/{month}-{date}-{year}.csv?raw=true')
-		os.system(f'cd {dpath}/data && mv {month}-{date}-{year}.csv?raw=true {month}-{date}-{year}.csv')
+		dpath = '/'.join(__file__.split('/')[0:-1])
+		os.system(f'cd {dpath}/ && wget https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/{month}-{date}-{year}.csv?raw=true')
+		os.system(f'cd {dpath}/ && mv {month}-{date}-{year}.csv?raw=true {month}-{date}-{year}.csv')
 
 		cdv = f'{month}-{date}-{year}.csv'
-		csvFilePath = f'{dpath}/data/{cdv}'
-		jsonFilePath = f'{dpath}/data/data.json'
+		csvFilePath = f'{dpath}/{cdv}'
+		jsonFilePath = f'{dpath}/data.json'
 		# Call the make_json function 
 		make_json(csvFilePath, jsonFilePath)
 		os.system(f'rm -fr {csvFilePath}')
@@ -107,16 +107,13 @@ def extract():
 
 		
 
-		dpath = '/'.join(__file__.split('/')[0:-2])
-		os.system(f'cd {dpath}/data && wget https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/{month}-{date}-{year}.csv?raw=true')
-		os.system(f'cd {dpath}/data && mv {month}-{date}-{year}.csv?raw=true {month}-{date}-{year}.csv')
+		dpath = '/'.join(__file__.split('/')[0:-1])
+		os.system(f'cd {dpath} && wget https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/{month}-{date}-{year}.csv?raw=true')
+		os.system(f'cd {dpath} && mv {month}-{date}-{year}.csv?raw=true {month}-{date}-{year}.csv')
 
 		cdv = f'{month}-{date}-{year}.csv'
-		csvFilePath = f'{dpath}/data/{cdv}'
-		jsonFilePath = f'{dpath}/data/data.json'
+		csvFilePath = f'{dpath}/{cdv}'
+		jsonFilePath = f'{dpath}/data.json'
 		# Call the make_json function 
 		make_json(csvFilePath, jsonFilePath)
 		os.system(f'rm -fr {csvFilePath}')
-
-if __name__ == "__main__":
-	extract()

@@ -1,13 +1,9 @@
 from fastapi import FastAPI 
-from flask import request, jsonify
 import json
-import requests
-from pathlib import Path
-
-dpath = '/'.join(str(Path('.').absolute()).split('/')[0:-1])
-jsonPath = f'{dpath}/data/data.json'
+import uvicorn
 
 app = FastAPI()
+dpath = '/'.join(__file__.split('/')[0:-1])
 
 @app.get('/')
 def home():
@@ -18,7 +14,7 @@ def home():
 def api_id(id: str):
     # Create an empty list for our results
     results = []
-    with open (jsonPath,'r') as f:
+    with open (f'{dpath}/data.json','r') as f:
         books = json.load(f)  
 
         # Loop through the data and match results that fit the requested ID.
@@ -31,3 +27,6 @@ def api_id(id: str):
             results.append('none')
 
         return results[0]
+
+def run():    
+    uvicorn.run(app)

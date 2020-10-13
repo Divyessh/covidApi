@@ -2,12 +2,13 @@ import os
 import csv
 from datetime import datetime
 import json
+import requests
 
 # Function to convert a CSV to JSON 
 # Takes the file paths as arguments 
 def make_json(csvFilePath, jsonFilePath): 
 	
-	# create a dictionary 
+	# create a dictionary
 	data = {} 
 	
 	# Open a csv reader called DictReader 
@@ -53,16 +54,22 @@ def extract():
 		if int(month) < 10:
 			month = '0' + str(month) 
 
+		x = requests.get(f'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/{month}-{date}-{year}.csv?raw=true')
+
 		dpath = '/'.join(__file__.split('/')[0:-1])
-		os.system(f'cd {dpath}/ && wget https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/{month}-{date}-{year}.csv?raw=true')
-		os.system(f'cd {dpath}/ && mv {month}-{date}-{year}.csv?raw=true {month}-{date}-{year}.csv')
 
 		cdv = f'{month}-{date}-{year}.csv'
 		csvFilePath = f'{dpath}/{cdv}'
 		jsonFilePath = f'{dpath}/data.json'
+
+		file1 = open(csvFilePath, "w") 
+		file1.write(x.text) 
+		file1.close()
+	
 		# Call the make_json function 
 		make_json(csvFilePath, jsonFilePath)
-		os.system(f'rm -fr {csvFilePath}')
+		os.remove(f'{csvFilePath}')
+
 
 	except FileNotFoundError:
 		date = int(datetime.today().date().day) - 2
@@ -107,13 +114,18 @@ def extract():
 
 		
 
+		x = requests.get(f'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/{month}-{date}-{year}.csv?raw=true')
+
 		dpath = '/'.join(__file__.split('/')[0:-1])
-		os.system(f'cd {dpath} && wget https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/{month}-{date}-{year}.csv?raw=true')
-		os.system(f'cd {dpath} && mv {month}-{date}-{year}.csv?raw=true {month}-{date}-{year}.csv')
 
 		cdv = f'{month}-{date}-{year}.csv'
 		csvFilePath = f'{dpath}/{cdv}'
 		jsonFilePath = f'{dpath}/data.json'
+
+		file1 = open(csvFilePath, "w") 
+		file1.write(x.text) 
+		file1.close()
+	
 		# Call the make_json function 
 		make_json(csvFilePath, jsonFilePath)
-		os.system(f'rm -fr {csvFilePath}')
+		os.remove(f'{csvFilePath}')
